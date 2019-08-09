@@ -47,7 +47,7 @@
 				<section class="definition">
 					<h6>KISS - "Keep It Simple Stupid"</h6>
 					<p>Story of Kelly Johnson</p>
-					<p>
+					<aside class="notes">
 						The principle is best exemplified by the story of Kelly Johnson handing a team of design
 						engineers a
 						handful of tools, with the challenge that the jet aircraft they were designing must be
@@ -56,8 +56,7 @@
 						Hence, the "stupid" refers to the relationship between the way things break and the
 						sophistication
 						available to repair them.
-
-					</p>
+					</aside>
 				</section>
 				<section class="definition-second">
 					<h6>Simple things are easier to:</h6>
@@ -67,9 +66,10 @@
 						<li><strong>change</strong> </li>
 					</ul>
 					<p>So, try to keep your code and system structure simple.</p>
-					No PIE & framework magic in the code unless you can justify their need.
-					Because, they always requires you to add more classes and add
-					complexity to your code.
+					<p>
+						No PIE & framework magic in the code unless you can justify their need.
+						Because, they always requires you to add more classes and add
+						complexity to your code.
 					</p>
 					<aside class="notes">
 						The advantage of simplicity is even bigger when the person who maintains the software is not the
@@ -201,10 +201,29 @@
 					<aside class="notes">
 						And one logical answer was "by avoiding complexity".
 						If the code is not complex then its simple.
+						But there are reasons for "why we make our code complex"
 					</aside>
 				</section>
 				<section>
 					Reason 1: make code more flexible to accommodate further requirements
+					<aside class="notes">
+						But one cannot know in what way to make it flexible or if that flexibility will be ever needed.
+						“When you make your code more flexible or sophisticated than it needs to be, you over-engineer
+						it. Some do this because they believe they know their system’s future requirements. They reason
+						that it’s best to make a design more flexible or sophisticated today, so it can accommodate the
+						needs of tomorrow. That sounds reasonable, if you happen to be a psychic.” - Refactoring To
+						Patterns - Joshua Kerievsky.
+					</aside>
+				</section>
+				<section>
+					Reason 2: optimization
+					<aside class="notes">
+						An optimized code is a more complex code. Pareto principle applies also in code: a program spend
+						most of the time in a small portion of the code, so it will be wise to concentrate the effort to
+						optimize only that part of the code. Another best practice is the to follow the “Three rules of
+						optimization”: (1. Don't, 2. Don't… Yet, 3. Profile before optimizing), which make sense: to
+						optimize only the code with performance problems.
+					</aside>
 				</section>
 				<section>Example
 					<pre style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
@@ -232,32 +251,50 @@
 									return weekdays[dayOfWeek-1];
 							}
 					</code></pre>
+					<aside class="notes">
+						<p>Both methods do the same thing: return a string representing the weekday. Just the
+						implementation is different. Both versions may be seen as simpler than the other depending on
+						the view taken. weekday2 has less statements and less execution branches. Complexity metrics
+						measuring these aspects (e.g. the cyclomatic complexity) will therefore prefer weekday2.
+						</p>
+
+						<p>On the other hand <strong>weekdays1</strong> uses less language features (just switch, return, and exceptions
+						whereas weekdays2 needs if, arrays, arithmetic, return, and exceptions). Furthermore in
+						weekdays1 the relation between input and output can be seen directly and it's clear how it works
+						by just seeing the method. But for understanding weekday2 there are more details to think about.
+						This is especially true for the range check at the beginning and the index computation in the
+						return statement. Clearly this is not particularly difficult but these are aspects which are
+						more difficult than in the other version of the method.
+						</p>
+
+						<p>So it's not objectively clear which of the two implementations KISS prefers without saying which
+						complexity metric to apply. But this is OK because principles are not meant to be unambiguous
+						and objective. Eventually a human developer decides which solution to
+						implement and the principles only give guidelines.</p>
+					</aside>
 				</section>
 			</section>
-			<section>Slide 2
-				<section> Slide 2 Part 1</section>
-				<section> Slide 2 Part 2</section>
-			</section>
-
-			<section>Test slide
-				<h2>Some Slide</h2>
-				<aside class="notes">
-					Oh hey, these are some notes.
-					They'll be hidden in your presentation, but you can see them if you open the speaker notes window
-					(hit »S« on your keyboard).
-				</aside>
-			</section>
-			<section>Slide 4</section>
 			<section>
-				References
-				<ul>
-					<li>
-						<a href="https://medium.com/infancyit/kiss-keep-it-simple-smart-javascript-habits-b019ce14b5ec">
-							KISS => Keep It Simple, Smart (Medium)
-						</a>
-					</li>
-					<li></li>
-				</ul>
+				<section>
+					<h6>Summary</h6>
+					<ol>
+						<li>KISS - </li>
+						<li>less lines of code</li>
+						<li>code with less complexity</li>
+					</ol>
+				</section>
+				<section>
+					References
+					<ul>
+						<li>
+							<a
+								href="https://medium.com/infancyit/kiss-keep-it-simple-smart-javascript-habits-b019ce14b5ec">
+								KISS => Keep It Simple, Smart (Medium)
+							</a>
+						</li>
+						<li></li>
+					</ul>
+				</section>
 			</section>
 		</div>
 	</div>
