@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="lib/css/zenburn.css">
 	<link rel="stylesheet" href="css/main.css">
 
 	<!-- Theme used for syntax highlighting of code -->
@@ -80,15 +81,15 @@
 					<pre>
 						<code data-trim data-line-numbers>
 							   if (var1 === null || var1 === undefined || var1 === '') {
-									console.log("VARIABLE NOT FOUND!")
+									console.log("VARIABLE NOT FOUND!");
 							   } else {
-								   console.log(var1)
+								   console.log(var1);
 							   }
 						</code>
 					</pre>
 					<pre>
 						<code data-trim >
-								console.log( var1 || "VARIABLE NOT FOUND!" )
+								console.log( var1 || "VARIABLE NOT FOUND!" );
 						</code>
 					</pre>
 
@@ -98,14 +99,14 @@
 					<pre>
 						<code data-trim data-line-numbers>
 							function sayHello(name) {
-								console.log('Hello', name)
+								console.log('Hello', name);
 							}
 						</code>
 					</pre>
 					<p>can be replaced with arrow function</p>
 					<pre>
 						<code data-trim data-line-numbers>
-							const sayHello = name => console.log("Hello", name)
+							const sayHello = name => console.log("Hello", name);
 						</code>
 					</pre>
 					<p>different scoping methodology.</p>
@@ -114,15 +115,15 @@
 					<h6>3. forEach </h6>
 					<pre>
 						<code class="hljs" data-trim data-line-numbers>
-							const list = [2, 5, 7, 2, 6, 2, 3, 5]
+							const list = [2, 5, 7, 2, 6, 2, 3, 5];
 							for (let i = 0; i < list.length; i++) {
-								console.log(list[i])
+								console.log(list[i]);
 							}
 						</code>
 					</pre>
 					<pre>
 						<code class="hljs" data-trim data-line-numbers>
-							list.forEach(number => console.log(number))
+							list.forEach(number => console.log(number));
 						</code>
 					</pre>
 				</section>
@@ -147,26 +148,85 @@
 				</section>
 				<section>
 					<h6>5. Destructuring</h6>
-					<pre>
-						<code data-trim data-line-numbers>
+					<pre><code class="hljs" data-trim data-line-numbers>
 								const person = {
 									first: 'Wes',
 									last: 'Bos',
 									country: 'Canada',
 									city: 'Hamilton',
 									twitter: '@wesbos'
-								  }
-								  const first = person.first
-								  const last = person.last
-						</code>
-					</pre>
+								  };
+								  const first = person.first;
+								  const last = person.last;
+						</code></pre>
+					<p>vs</p>
+					<pre><code class="hljs" data-trim>
+								let { first, last } = person;
+						</code></pre>
+					<img src="img/Jason_Funderburker_019.webp" style="width: 300px; height:190px">
+				</section>
+				<section>
+					<h6>6. Spread Operator</h6>
+					<pre><code class="hljs" data-trim data-line-numbers>
+							const odd = [1, 2, 3];
+							const nums = [4, 5, 6].concat(odd);
+					</code></pre>
+					<p>vs</p>
+					<pre><code class="hljs" data-trim data-line-numbers>
+							const nums = [4, 5, 6, ...odd];
+					</code></pre>
+				</section>
+				<section>
+					<img src="img/comment.png">
+					<aside class="notes">
+						This comment gave me the idea that the line of code is not the only way of keeping code simple
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>KISS 2: less complexity
+						<aside class="notes">
+						Then I asked myself "how to keep code simple?"	
+						</aside>
+				</section>
+				<section>
+					simple == !complex
+					<aside class="notes">
+						And one logical answer was "by avoiding complexity". 
+						If the code is not complex then its simple.
+				</section>
+				<section>Example
+					<pre style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+							function weekday1(dayOfWeek){
+								switch(dayOfWeek){
+									case 1: return "Monday";
+									case 2: return "Tuesday";
+									case 3: return "Wednesday";
+									case 4: return "Thursday";
+									case 5: return "Friday";
+									case 6: return "Saturday";
+									case 7: return "Sunday";
+									default: 
+									  throw new Error("dayOfWeek - in range 1..7");
+								}
+							}									
+					</code></pre>
+					<pre style="font-size: 18px; width: 100%;"><code class="hljs" data-trim data-line-numbers>
+							function weekday2(dayOfWeek){
+								if((dayOfWeek < 1) || (dayOfWeek > 7))
+									throw new Error("dayOfWeek must be in range 1..7");
+								
+									let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+					
+									return weekdays[dayOfWeek-1];
+							}
+					</code></pre>
 				</section>
 			</section>
 			<section>Slide 2
 				<section> Slide 2 Part 1</section>
 				<section> Slide 2 Part 2</section>
 			</section>
-			<section>simple == !complex</section>
 
 			<section>Test slide
 				<h2>Some Slide</h2>
