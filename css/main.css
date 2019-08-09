@@ -1,0 +1,16 @@
+section.definition p {
+    /* text-align: left; */
+    font-size: 24px;
+}
+section.definition h6 {
+    text-transform: none;
+}
+section.definition-second h6 {
+    text-transform: none;
+}
+section.kiss-less-lines h6 {
+    text-transform: none;
+}
+section.definition-second ul {
+    text-align: left;
+}

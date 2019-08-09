@@ -1,72 +1,211 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<meta name="author" content="Abduvosid Malikov">
-		<title>KISS </title>
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="author" content="Abduvosid Malikov">
+	<title>KISS </title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/main.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>KISS</section>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>KISS
+				<aside class="notes">KISS is the acronym that stands for Keep It Simple</aside>
+			</section>
+			<section>
+				<h3>Agenda</h3>
+				<ol>
+					<li>Definition of KISS</li>
+					<li>KISS 1: less lines of code</li>
+					<li>KISS 2: less complexity</li>
+					<li>Summary</li>
+				</ol>
+				<aside class="notes">The presentation is divided into 4 parts: Definition, KISS1, KISS2, Summary</aside>
+			</section>
+			<section>
+				<section>Definition</section>
+				<section class="definition">
+					<h6>KISS - "Keep It Simple Stupid"</h6>
+					<p>Story of Kelly Johnson</p>
+					<p>
+						The principle is best exemplified by the story of Kelly Johnson handing a team of design
+						engineers a
+						handful of tools, with the challenge that the jet aircraft they were designing must be
+						repairable by
+						an average mechanic in the field under combat conditions with only these tools.
+						Hence, the "stupid" refers to the relationship between the way things break and the
+						sophistication
+						available to repair them.
+
+					</p>
+				</section>
+				<section class="definition-second">
+					<h6>Simple things are easier to:</h6>
+					<ul>
+						<li><strong>understand</strong></li>
+						<li><strong>maintain</strong></li>
+						<li><strong>change</strong> </li>
+					</ul>
+					<p>So, try to keep your code and system structure simple.</p>
+					No PIE & framework magic in the code unless you can justify their need.
+					Because, they always requires you to add more classes and add
+					complexity to your code.
+					</p>
+				</section>
+			</section>
+			<section class="kiss-less-lines">
+				<section>KISS 1: less lines of code</section>
+				<section data-background-image="./img/KISS-medium.png" data-background-size="contain"></section>
 				<section>
-					<h3>Agenda</h3>
-					<ol>
-						<li>Definition of KISS</li>
-						<li>KISS 1: less lines of code</li>
-						<li>KISS 2: less complexity</li>
-						<li>Summary</li>
-					</ol>
+					<h6>1. Short-circuit Evaluation</h6>
+					<pre>
+						<code data-trim data-line-numbers>
+							   if (var1 === null || var1 === undefined || var1 === '') {
+									console.log("VARIABLE NOT FOUND!")
+							   } else {
+								   console.log(var1)
+							   }
+						</code>
+					</pre>
+					<pre>
+						<code data-trim >
+								console.log( var1 || "VARIABLE NOT FOUND!" )
+						</code>
+					</pre>
+
 				</section>
-				<section>Slide 2
-					<section> Slide 2 Part 1</section>
-					<section> Slide 2 Part 2</section>
-				</section>
-				<section>simple == !complex</section>
-				<section>Test slide
-				<h2>Some Slide</h2>	
-					<aside class="notes">
-						Oh hey, these are some notes. 
-						They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
-					</aside>
-				</section>
-				<section>Slide 4</section>
 				<section>
-					References</section>
-			</div>
+					<h6>2. Arrow Functions <strong>() =></strong> </h6>
+					<pre>
+						<code data-trim data-line-numbers>
+							function sayHello(name) {
+								console.log('Hello', name)
+							}
+						</code>
+					</pre>
+					<p>can be replaced with arrow function</p>
+					<pre>
+						<code data-trim data-line-numbers>
+							const sayHello = name => console.log("Hello", name)
+						</code>
+					</pre>
+					<p>different scoping methodology.</p>
+				</section>
+				<section>
+					<h6>3. forEach </h6>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers>
+							const list = [2, 5, 7, 2, 6, 2, 3, 5]
+							for (let i = 0; i < list.length; i++) {
+								console.log(list[i])
+							}
+						</code>
+					</pre>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers>
+							list.forEach(number => console.log(number))
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h6>4. Default Parameters</h6>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers>
+							function volume(l, w, h) {
+								if (w === undefined)
+									w = 1;
+								if (h === undefined)
+									h = 1;
+								return l * w * h;
+								}
+						</code>
+					</pre>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers>
+							const volume = ( l, w = 1, h = 1) => l * w * h
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h6>5. Destructuring</h6>
+					<pre>
+						<code data-trim data-line-numbers>
+								const person = {
+									first: 'Wes',
+									last: 'Bos',
+									country: 'Canada',
+									city: 'Hamilton',
+									twitter: '@wesbos'
+								  }
+								  const first = person.first
+								  const last = person.last
+						</code>
+					</pre>
+				</section>
+			</section>
+			<section>Slide 2
+				<section> Slide 2 Part 1</section>
+				<section> Slide 2 Part 2</section>
+			</section>
+			<section>simple == !complex</section>
+
+			<section>Test slide
+				<h2>Some Slide</h2>
+				<aside class="notes">
+					Oh hey, these are some notes.
+					They'll be hidden in your presentation, but you can see them if you open the speaker notes window
+					(hit »S« on your keyboard).
+				</aside>
+			</section>
+			<section>Slide 4</section>
+			<section>
+				References
+				<ul>
+					<li>
+						<a href="https://medium.com/infancyit/kiss-keep-it-simple-smart-javascript-habits-b019ce14b5ec">
+							KISS => Keep It Simple, Smart (Medium)
+						</a>
+					</li>
+					<li></li>
+				</ul>
+			</section>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
 </html>
