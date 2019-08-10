@@ -253,24 +253,31 @@
 					</code></pre>
 					<aside class="notes">
 						<p>Both methods do the same thing: return a string representing the weekday. Just the
-						implementation is different. Both versions may be seen as simpler than the other depending on
-						the view taken. weekday2 has less statements and less execution branches. Complexity metrics
-						measuring these aspects (e.g. the cyclomatic complexity) will therefore prefer weekday2.
+							implementation is different. Both versions may be seen as simpler than the other depending
+							on
+							the view taken. weekday2 has less statements and less execution branches. Complexity metrics
+							measuring these aspects (e.g. the cyclomatic complexity) will therefore prefer weekday2.
 						</p>
 
-						<p>On the other hand <strong>weekdays1</strong> uses less language features (just switch, return, and exceptions
-						whereas weekdays2 needs if, arrays, arithmetic, return, and exceptions). Furthermore in
-						weekdays1 the relation between input and output can be seen directly and it's clear how it works
-						by just seeing the method. But for understanding weekday2 there are more details to think about.
-						This is especially true for the range check at the beginning and the index computation in the
-						return statement. Clearly this is not particularly difficult but these are aspects which are
-						more difficult than in the other version of the method.
+						<p>On the other hand <strong>weekdays1</strong> uses less language features (just switch,
+							return, and exceptions
+							whereas weekdays2 needs if, arrays, arithmetic, return, and exceptions). Furthermore in
+							weekdays1 the relation between input and output can be seen directly and it's clear how it
+							works
+							by just seeing the method. But for understanding weekday2 there are more details to think
+							about.
+							This is especially true for the range check at the beginning and the index computation in
+							the
+							return statement. Clearly this is not particularly difficult but these are aspects which are
+							more difficult than in the other version of the method.
 						</p>
 
-						<p>So it's not objectively clear which of the two implementations KISS prefers without saying which
-						complexity metric to apply. But this is OK because principles are not meant to be unambiguous
-						and objective. Eventually a human developer decides which solution to
-						implement and the principles only give guidelines.</p>
+						<p>So it's not objectively clear which of the two implementations KISS prefers without saying
+							which
+							complexity metric to apply. But this is OK because principles are not meant to be
+							unambiguous
+							and objective. Eventually a human developer decides which solution to
+							implement and the principles only give guidelines.</p>
 					</aside>
 				</section>
 			</section>
@@ -284,16 +291,39 @@
 					</ol>
 				</section>
 				<section>
-					References
+					<h6>References</h6>
 					<ul>
+						<li>
+							<a href="https://en.wikipedia.org/wiki/KISS_principle">
+								KISS principle (Wikipedia)
+							</a>
+						</li>
 						<li>
 							<a
 								href="https://medium.com/infancyit/kiss-keep-it-simple-smart-javascript-habits-b019ce14b5ec">
 								KISS => Keep It Simple, Smart (Medium)
 							</a>
 						</li>
-						<li></li>
+						<li>
+							<a href="http://www.principles-wiki.net/principles:keep_it_simple_stupid">
+								Keep It Simple Stupid (Principles Wiki)
+							</a>
+						</li>
+						<li>
+							<a href="https://simpleprogrammer.com/kiss-one-best-practice-to-rule-them-all/">
+								KISS — One Best Practice to Rule Them All (Simple Programmer)
+							</a>
+						</li>
+						<li>
+							<a href="http://people.apache.org/~fhanik/kiss.html">
+								What does KISS stand for? (people.apache.org)
+							</a>
+						</li>
 					</ul>
+				</section>
+				<section>
+					Thank you&#128536;
+
 				</section>
 			</section>
 		</div>
